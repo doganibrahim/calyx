@@ -5,9 +5,14 @@ def main():
     while True:
         sys.stdout.write("$ ")
         command = input()
+        if not command:
+            continue
         if command == "exit":
             break
-        print(f"{command}: command not found")
+        if command.split()[0] == "echo":
+            print(command[5:])
+        else:
+            print(f"{command}: command not found")
 
 
 if __name__ == "__main__":
